@@ -1,0 +1,19 @@
+version: "<docker-compose-version>"
+services:
+  frontend-service:      
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "<host-port>:<container-port>"
+    volumes:
+      - type: bind
+        source: ./src
+        target: /app/src
+    environment:
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+      
+    #env_file:
+    #  - ./.env
+    # - 

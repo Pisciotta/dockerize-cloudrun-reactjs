@@ -1,0 +1,7 @@
+FROM node
+WORKDIR /app
+COPY package.json ./
+RUN yarn
+COPY . .
+EXPOSE <container_port>
+ENTRYPOINT ["yarn","start"] 
